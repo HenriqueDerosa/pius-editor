@@ -12,11 +12,11 @@ const createComponentWithAuth = withFirebaseAuth({
   firebaseAppAuth,
 });
 
-const App = ({ signInWithGoogle, signInWithGithub, signOut, user }) => {
+const App = ({ signInWithGoogle, signOut, user }) => {
   return (
     <>
       <header className="header">
-        <h2>TypeMD</h2>
+        <h2>Pius Content Manager</h2>
         {user && (
           <div className="user-profile">
             <a
@@ -27,18 +27,14 @@ const App = ({ signInWithGoogle, signInWithGithub, signOut, user }) => {
                 signOut();
               }}
             >
-              Log Out
+              Sair
             </a>
             <img alt="Profile" className="avatar" src={user.photoURL} />
           </div>
         )}
       </header>
       <Router>
-        <SignIn
-          path="/"
-          user={user}
-          signIns={{ signInWithGithub, signInWithGoogle }}
-        />
+        <SignIn path="/" user={user} signIns={{ signInWithGoogle }} />
         <Dashboard path="user/:userId" user={user} />
         <Editor path="user/:userId/editor/:fileId" user={user} />
       </Router>

@@ -48,8 +48,8 @@ const Dashboard = ({ user, userId }) => {
     }
   }, [user]);
 
-  if (error) return <p>Error loading data!</p>;
-  else if (!data) return <p>Loading...</p>;
+  if (error) return <p>Erro ao carregar!</p>;
+  else if (!data) return <p>Carregando...</p>;
   else {
     return (
       <div>
